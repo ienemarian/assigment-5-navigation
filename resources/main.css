@@ -1,0 +1,485 @@
+/* Colors:
+- #231f20 (text and top strip)
+- #f2ede8 (sidebar)
+- #f8f5f2 (content wrapper)
+- #e8e0d8 (border selected menu item)
+
+Implementation details:
+- Well-formed doc
+- Semantic tags
+- External stylesheet and script assets
+- Implement all 5 layouts provided to you as INTERNAL PAGES (z-index technique)
+- Order Details page will be navigated to from Your Orders page > Order Details link
+- JS logic for:
+     - Menu item selected state
+     - Change of page on click event
+     - Logo change according to page 
+.*/
+
+html, body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+p, h1, h2, h3, h4{
+    margin: 0;
+}
+
+main{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #231f20;
+}
+a{
+    text-decoration: none;
+    color: #231f20;
+    font-weight: bold;
+}
+
+a:hover{
+    cursor: pointer;
+}
+
+/* Utility */
+
+.hidden{
+    display: none;
+}
+
+.bigger-text{
+    font-size: 25px;
+}
+
+.no-bold{
+    font-weight: 100;
+}
+
+/* Icons */
+
+.icon{
+    height: 25px;
+    width: 25px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.icon-find{
+    background-image: url(../assets/icon-find.png);
+}
+
+.icon-cart{
+    background-image: url(../assets/icon-cart-2.png);
+}
+
+.icon-exit{
+    background-image: url(../assets/icon-exit-3.png);
+}
+
+.icon-recurrent{
+    background-image: url(../assets/icon-recurrent.png);
+}
+
+.icon-savings{
+    background-image: url(../assets/icon-savings.png);
+}
+
+.icon-plus{
+    background-image: url(../assets/icon-plus.png);
+}
+
+/* Box Images */
+
+.box-addition-1{
+    background-image: url(../assets/product-1/addition-1.png);
+}
+
+.box-addition-2{
+    background-image: url(../assets/product-1/addition-3.png);
+}
+
+.box-addition-3{
+    background-image: url(../assets/product-1/addition-4.png);
+}
+
+/* Credit Cards */
+
+.credit-card{
+    border-radius: 15px;
+    width: 350px;
+    height: 210px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card-1{
+    background-image: url(../assets/card-1.png);
+}
+
+.card-2{
+    background-image: url(../assets/card-2.png);
+}
+
+.card-3{
+    background-image: url(../assets/card-3.png);
+}
+
+/* Header */
+
+header{
+    text-align: center;
+    position: relative;
+}
+
+.shop-nav-wrapper{
+    position: absolute;
+    width: 100%;
+    padding-top: 10px;
+}
+
+.free-shipping{
+    color: #fff;
+    background-color: #231f20;
+    padding: 10px 20px;
+    
+}
+
+.shop-nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 50px;
+}
+
+.shop-nav img{
+    height: 35px;
+    width: auto;
+}
+
+.shop-nav nav{
+    display: flex;
+    align-items: center;
+    
+}
+
+.shop-nav nav a{
+    margin: 0 30px;
+}
+
+/* Aside */
+
+.separator{
+    display: flex;
+    height: calc(100% - 49px);
+}
+
+aside{
+    background-color: #f8f5f2;
+    height: 100%;
+    width: 20%;
+}
+
+.aside-inner-wrapper{
+    margin-top: 50%;
+    margin-left: 40%;
+}
+
+aside img{
+    height: 120px;
+    width: auto;
+    margin-bottom: 30px;
+}
+
+aside nav{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+aside nav a{
+    padding-bottom: 3px;
+    margin-bottom: 17px;
+}
+
+aside nav a:hover{
+    background: rgb(232,224,216);
+    background: linear-gradient(0deg, rgba(232,224,216,1) 50%, rgba(248,245,242,1) 50%);
+}
+
+
+.selected{
+    background: rgb(232,224,216);
+    background: linear-gradient(0deg, rgba(232,224,216,1) 50%, rgba(248,245,242,1) 50%);
+}
+
+/* Section */
+
+section{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 3%;
+}
+
+section h1{
+    width: 55px;
+    font-size: 3rem;
+}
+
+.section-inner-wrapper{
+    width: 80%;
+    
+}
+
+/* Section Orders */
+
+
+.product-image-wrapper{
+    padding: 50px 20px;
+    background-color: #f8f5f2;
+    margin-right: 30px;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-image-wrapper img{
+    height: 350px;
+    width: auto;
+}
+
+.purchase-details{
+    width: 75%;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.purchase-wrapper{
+    display: flex;
+    margin-top: 50px;
+}
+
+.order-settings{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.settings a{
+    margin-bottom: 20px;
+    display: block;
+    text-align: right;
+}
+
+.settings a:hover{
+    text-decoration: underline #000;
+}
+
+.other-products{
+    display: flex;
+    justify-self: flex-end;
+    align-self: flex-end;
+    margin-top: 10px;
+}
+
+.box{
+    height: 100px;
+    width: 100px;
+    margin-right: 50px;
+    background-color: #f8f5f2;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.more-items{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Section Order Details */
+
+.order-details h2{
+    width: 10%;
+}
+
+.order-details .bigger-text{
+    font-size: 19px;
+}
+
+.cancelled{
+    align-self: flex-end;
+    padding: 0 7rem 0 0;
+}
+
+.tittle-wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+.settings a{
+    display: flex;
+    flex-direction: column;
+}
+.billing-shipping{
+    display: flex;
+    justify-content: space-between;
+    margin: 60px 0;
+    line-height: 30px;
+}
+
+.billing-shipping div{
+    width: 25%;
+}
+
+.last{
+    line-height: 20px;
+}
+
+/* Section Reward Status */
+
+.reward-status h1{
+    margin-bottom: 70px;
+}
+
+.activity{
+    display: flex;
+}
+
+.info-wrapper{
+    margin-left: 200px;
+    display: flex;
+}
+
+.status{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 100px;
+}
+
+.status div{
+    margin-bottom: 80px;
+    width: 200px;
+}
+
+.reward-info{
+    width: 80%;
+}
+
+.benefits{
+    display: flex;
+}
+
+.benefits-icons{
+    display: flex;
+    margin-left: 200px;
+}
+
+.icon-recurrent, .icon-savings{
+    width: 70px;
+    height: 70px;
+    margin-right: 100px;
+}
+
+.icon-recurrent, .icon-savings:hover{
+    cursor: pointer;
+}
+
+/* Section Account Settings */
+
+.account-settings h1{
+    margin-bottom: 25px;
+}
+
+.user-details{
+    display: flex;
+    width: 60%;
+}
+
+.left{
+    margin-right: 50px;
+}
+
+.user-details .left, .user-details .right{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.user-details input{
+    width: 100%;
+    height: 45px;
+    border: 2px solid #e8e0d8;
+    margin: 10px 50px 20px 0;
+    padding: 0 0 0 10px;
+}
+
+.user-details button{
+    width: calc(100% + 12px);
+    height: 55px;
+    background-color: #231f20;
+    color: #fff;
+    font-size: 18px;
+}
+
+.account-settings form {
+    margin-bottom: 50px;
+}
+
+.user-addres{
+    display: flex;
+    width: 60%;
+}
+
+.addres-box{
+    width: calc(100% + 20px);
+    color: #fff;
+    background-color: #231f20;
+    padding: 30px 0 20px 10px;
+    border-radius: 25px;
+    line-height: 25px;
+    margin-top: 30px;
+}
+
+/* Payment Section */
+
+.payment h1{
+    margin-bottom: 40px;
+}
+
+.credit-cards{
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.credit-card{
+    margin-right: 50px;
+}
+
+.new-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f5f2;
+}
+
+.new-card .icon{
+    height: 50px;
+    width: 50px;
+    margin-bottom: 10px;
+}
