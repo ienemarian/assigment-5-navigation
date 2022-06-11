@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="resources/main.css">
+    <link rel="stylesheet" href="resources/main.css" type="text/css">
     <title>Navigation</title>
 </head>
 <body>
@@ -14,7 +14,7 @@
             <div class="shop-nav-wrapper hidden">
                 <div class="shop-nav">
                     <!-- este ok sa te obisnuiesti sa adaugi valoare pt atributul alt, foarte ajutator pe partea de accesibilitate -->
-                    <img src="assets/logo-boundary.png" alt="">
+                    <img src="assets/logo-boundary.png" alt="logo">
                     <nav>
                         <a href="">SHOP</a>
                         <a href=""><div class="icon icon-find"></div></a>
@@ -27,10 +27,10 @@
         <div class="separator">
             <aside>
                 <div class="aside-inner-wrapper">
-                    <div class="logo-wrapper"><img id="logo-image" src="assets/logo-vip.png" alt=""></div>
+                    <div class="logo-wrapper"><img id="logo-image" src="assets/logo-vip.png" alt="logo"></div>
                     <nav>
                         <a class="menu-item selected" data-content="your-orders">Your Orders</a>
-                        <a class="menu-item" data-content="reward-status">Reward Statu</a>
+                        <a class="menu-item" data-content="reward-status">Reward Status</a>
                         <a class="menu-item" data-content="account-settings">Account Settings</a>
                         <a class="menu-item" data-content="payment">Payment Methods</a>
                         <a>Sign Out</a>
@@ -40,39 +40,38 @@
             <!-- pe rezolutii mai mici layout-ul este putin instabil in ceea ce priveste continutul si spatierea,,ti-am adaugat un recording, te rog sa te uiti -->
             <section class="content your-orders">
                 <div class="section-inner-wrapper">
-                    <h1>Your Orders</h1>
-                    <div class="purchase-wrapper">
-                        <div class="product-image-wrapper">
-                            <img src="assets/product-1/product.png" alt="product-image">
+                    <div><h1>Your <span>Orders</span></h1></div>
+                    <div class="main">
+                        <div class="image-wrapper">
                         </div>
-                        <div class="purchase-details">
+                        <div class="product-details">
                             <div class="order-settings">
                                 <div class="order-status">
                                     <!-- acestea nu au rol semantic de paragrafe; in situatii asemanatoare iti recomand sa optezi pt div-uri sau span-uri -->
-                                    <p>April 1, 2019</p>
-                                    <p class="bigger-text">Processing</p>
+                                    <div>April 1, 2019</div>
+                                    <div class="bigger-text">Processing</div>
                                 </div>
                                 <div class="settings">
                                     <a class="menu-item" data-content="order-details">Order Details <span>Cancel / Modify</span></a>
                                 </div>
                             </div>
                             <div>
-                                <p>Order #</p>
-                                <p class="bigger-text">30004</p>
+                                <div>Order #</div>
+                                <div class="bigger-text">30004</div>
                             </div>
                             <div>
-                                <p>Order Total</p>
-                                <p class="bigger-text">$324.96</p>
+                                <div>Order Total</div>
+                                <div class="bigger-text">$324.96</div>
                             </div>
                             <div>
-                                <p>Aslo in this order</p>
+                                <div>Aslo in this order</div>
                                 <div class="other-products">
-                                    <div class="box box-addition-1"></div>
-                                    <div class="box box-addition-2"></div>
-                                    <div class="box box-addition-3"></div>
-                                    <div class="box more-items">
-                                        <p>+3</p>
-                                        <p>more</p>
+                                    <div class="zoom box box-addition-1"></div>
+                                    <div class="zoom box box-addition-2"></div>
+                                    <div class="zoom box box-addition-3"></div>
+                                    <div class="zoom box more-items">
+                                        <div>+3</div>
+                                        <div>more</div>
                                     </div>
                                 </div>
                             </div>
@@ -82,54 +81,53 @@
             </section>
             <section class="content order-details hidden">
                 <div class="section-inner-wrapper">
-                    <p>Your Orders/Order #30002</p>
-                    <div class="tittle-wrapper">
-                        <div><h1>Order Details</h1></div>
-                        <div class="cancelled"><h2>Order Cancelled</h2></div>
+                    <div class="order-details-header">
+                        <div>
+                            <div>Your Orders/Order #30002</div>
+                            <h1>Order <span>Details</span></h1>
+                        </div>
+                        <div class="cancelled">
+                            <div>Order <span>Cancelled</span></div>
+                        </div>
                     </div>
-                    <div class="billing-shipping-wrapper">
+                    <div class="main">
                         <div class="billing-shipping">
-                            <div>
-                                <p class="bigger-text">Billing</p>
+                            <div class="bigger-text">Billing</div>
+                            <div >
+                                <div>Rally Interactive</div>
+                                <div>244 W 300 N</div>
+                                <div>Salt Lake City, Utah 84103</div>
+                                <div>United States</div>
+                                <div>(801) 643-3595</div>
                             </div>
                             <div>
-                                <p>Rally Interactive</p>
-                                <p>244 W 300 N</p>
-                                <p>Salt Lake City, Utah 84103</p>
-                                <p>United States</p>
-                                <p>(801) 643-3595</p>
-                            </div>
-                            <div class="last">
-                                <p>Payment Status:</p>
-                                <p>Refounded</p>
+                                <div>Payment Status:</div>
+                                <div>Refounded</div>
                             </div>
                         </div>
                         <div class="billing-shipping">
-                            <div>
-                                <p class="bigger-text">Shipping</p>
+                            <div class="bigger-text">Shipping</div>
+                            <div >
+                                <div>Rally Interactive</div>
+                                <div>244 W 300 N</div>
+                                <div>Salt Lake City, Utah 84103</div>
+                                <div>United States</div>
+                                <div>(801) 643-3595</div>
                             </div>
                             <div>
-                                <p>Rally Interactive</p>
-                                <p>244 W 300 N</p>
-                                <p>Salt Lake City, Utah 84103</p>
-                                <p>United States</p>
-                                <p>(801) 643-3595</p>
-                            </div>
-                            <div class="last">
-                                <p>Payment Status:</p>
-                                <p>Unfulfilled</p>
+                                <div>Payment Status:</div>
+                                <div>Unfulfilled</div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </section>
             <section class="content reward-status hidden">
                 <div class="section-inner-wrapper">
-                    <h1>Reward Status</h1>
-                    <div class="reward-info">
+                    <div><h1>Reward <span>Status</span></h1></div>
+                    <div class="main">
                         <div class="activity">
-                            <div><p>Activity</p></div>
+                            <div class="left">Activity</div>
                             <div class="info-wrapper">
                                 <div class="status">
                                     <div>
@@ -162,10 +160,10 @@
                             </div>
                         </div>
                         <div class="benefits">
-                            <div><p>Benefits</p></div>
+                            <div class="left">Benefits</div>
                             <div class="benefits-icons">
-                                <div class="icon icon-recurrent"></div>
-                                <div class="icon icon-savings"></div>
+                                <div class="zoom icon icon-recurrent"></div>
+                                <div class="zoom icon icon-savings"></div>
                             </div>
                         </div>
                     </div>
@@ -173,64 +171,78 @@
             </section>
             <section class="content account-settings hidden">
                 <div class="section-inner-wrapper">
-                    <h1>Account Settings</h1>
-                    <div>
-                        <p>Account</p>
-                        <form action="">
-                            <div class="user-details">
-                                <div class="left">
-                                    <label for="name"></label>
-                                    <input id="name" type="text" placeholder="Your Name">
-                                    <label for="email"></label>
-                                    <input id="email" type='email' placeholder="Your Email">
-                                    <button>SAVE CHANGES</button>
+                    <div><h1>Account <span>Settings</span></h1></div>
+                    <div class="main">
+                        <div class="main-form">
+                            <div>Account</div>
+                            <form action="">
+                                <div class="user-details">
+                                    <div class="left-input">
+                                        <label for="name"></label>
+                                        <input id="name" type="text" placeholder="Your Name">
+                                        <label for="email"></label>
+                                        <input id="email" type='email' placeholder="Your Email">
+                                        <button>SAVE CHANGES</button>
+                                    </div>
+                                    <div class="right-input">
+                                        <label for="phone-number"></label>
+                                        <input id="phone-number" type="text" placeholder="Your Phone Number">
+                                        <label for="password"></label>
+                                        <input id="password" type='password' placeholder="Your Password">
+                                    </div>
                                 </div>
-                                <div class="right">
-                                    <label for="phone-number"></label>
-                                    <input id="phone-number" type="text" placeholder="Your Phone Number">
-                                    <label for="password"></label>
-                                    <input id="password" type='password' placeholder="Your Password">
+                            </form>
+                        </div>
+                        <div class="account-addresses">
+                            <div>Addresses</div>
+                            <div class="user-addres">
+                                <div class="addres-box left">
+                                    <p>Ben Cline</p>
+                                    <p>1234 S. Flestwood Mac Dr</p>
+                                    <p>Salt Lake City, UT B4109</p>
+                                    <p>United States</p>
+                                    <p>+1 801 641 09</p>
                                 </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div>
-                        <p>Addresses</p>
-                        <div class="user-addres">
-                            <div class="addres-box left">
-                                <p>Ben Cline</p>
-                                <p>1234 S. Flestwood Mac Dr</p>
-                                <p>Salt Lake City, UT B4109</p>
-                                <p>United States</p>
-                                <p>+1 801 641 09</p>
-                            </div>
-                            <div class="addres-box right">
-                                <p>Ben Cline</p>
-                                <p>C/O Rally Interactive</p>
-                                <p>Salt Lake City, UT B4109</p>
-                                <p>United States</p>
-                                <p>+1 801 641 09</p>
+                                <div class="addres-box right">
+                                    <p>Ben Cline</p>
+                                    <p>C/O Rally Interactive</p>
+                                    <p>Salt Lake City, UT B4109</p>
+                                    <p>United States</p>
+                                    <p>+1 801 641 09</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
             <section class="content payment hidden">
-                <h1>Payment Methods</h1>
-                <div class="credit-cards">
-                    <div class="credit-card card-1"></div>
-                    <div class="credit-card card-2"></div>
-                </div>
-                <div class="credit-cards">
-                    <div class="credit-card card-3"></div>
-                    <div class="credit-card new-card">
-                        <div class="icon icon-plus"></div>
-                        <p>ADD CARD</p>
+                <div class="section-inner-wrapper">
+                    <div><h1>Payment <span>Methods</span></h1></div>
+                    <div class="main">
+                        <div class="credit-cards">
+                            <div class="left-cards">
+                                <div class="credit-card">
+                                    <img src="assets/card-1.png" alt="card-1">
+                                </div>
+                                <div class="credit-card">
+                                    <img src="assets/card-2.png" alt="card-2">
+                                </div>
+                            </div>
+                            <div class="right-cards">
+                                <div class="credit-card">
+                                    <img src="assets/card-3.png" alt="card-3">
+                                </div>
+                                <div class="credit-card new-card">
+                                    <div class="icon icon-plus"></div>
+                                    <div>ADD CARD</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
         </div>
     </main>
-    <script src="resources/main.js"></script>
+    <script src="resources/main.js" type="text/javascript"></script>
 </body>
 </html>
